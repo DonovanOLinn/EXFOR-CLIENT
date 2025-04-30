@@ -1,26 +1,28 @@
 import React, { useEffect, useState } from 'react'
 import ItemCard from './ItemCard'
+import SearchBar from './SearchBar'
 
 
 export default function ItemList() {
-    const [character, setCharacter] = useState([])
+    const [data, setData] = useState([])
     const [loading, setLoading] = useState(true)
+    const [search, setSearch] = useState('books')
 
     useEffect(() => {
         async function getData() {
-            const response = await fetch('http://127.0.0.1:5000/books', {
+            const response = await fetch(`http://127.0.0.1:5000/${search}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
                 }
             });
             const data = await response.json()
-            setCharacter(data)
+            setData(data)
             setLoading(false)
             console.log(data)
         }
         getData()
-    }, [])
+    }, [search])
 
 
   return (
@@ -30,9 +32,11 @@ export default function ItemList() {
             <p>Fastest monkey hauler in the galaxy.</p>
         </div>
 
+        <SearchBar setSearch={setSearch}/>
+
         <div className="grid">
             {loading ? <p>Nothing</p> : 
-                character.map((val) => (
+                data.map((val) => (
                     <li>
                         <ItemCard val={val}/>
                     </li>
@@ -40,20 +44,16 @@ export default function ItemList() {
         </div>
 
         <div>
-            {loading ? <p>Nothing</p> : 
-            <pre>
-                {/* {character.map((val, idx) => (
-                    <li>
-                        {val.character_id}
-                        {val.character_name}
-                    </li>
-                ))} */}
-                <code>{JSON.stringify(character, null, 2)}</code>
-            </pre>}
+            {
+                loading 
+                    ? 
+                <p>Nothing</p> 
+                    : 
+                <pre>
+                    <code>{JSON.stringify(data, null, 2)}</code>
+                </pre>
+            }
         </div>
-        <pre>
-            {/* <code>{JSON.stringify(data, null, 2)}</code> */}
-        </pre>
 
     </div>
   )
