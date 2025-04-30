@@ -4,12 +4,11 @@ import ItemCard from './ItemCard'
 
 export default function ItemList() {
     const [character, setCharacter] = useState([])
-    const [loading, isLoading] = useState(true)
-    console.log(character)
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         async function getData() {
-            const response = await fetch('http://127.0.0.1:5000/characters', {
+            const response = await fetch('http://127.0.0.1:5000/books', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
@@ -17,7 +16,7 @@ export default function ItemList() {
             });
             const data = await response.json()
             setCharacter(data)
-            isLoading(false)
+            setLoading(false)
             console.log(data)
         }
         getData()
@@ -32,11 +31,25 @@ export default function ItemList() {
         </div>
 
         <div className="grid">
-            <ItemCard />
+            {loading ? <p>Nothing</p> : 
+                character.map((val) => (
+                    <li>
+                        <ItemCard val={val}/>
+                    </li>
+                ))}
         </div>
 
         <div>
-            {loading ? <p>Nothing</p> : <p>{character[0].character_name}</p>}
+            {loading ? <p>Nothing</p> : 
+            <pre>
+                {/* {character.map((val, idx) => (
+                    <li>
+                        {val.character_id}
+                        {val.character_name}
+                    </li>
+                ))} */}
+                <code>{JSON.stringify(character, null, 2)}</code>
+            </pre>}
         </div>
         <pre>
             {/* <code>{JSON.stringify(data, null, 2)}</code> */}
