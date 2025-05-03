@@ -38,7 +38,7 @@ export default function ItemList() {
             {loading ? <p>Nothing</p> : 
                 data.map((val) => (
                     <li>
-                        <ItemCard val={val}/>
+                        <ItemCard search={search} val={val}/>
                     </li>
                 ))}
         </div>
