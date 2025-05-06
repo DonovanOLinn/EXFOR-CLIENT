@@ -27,13 +27,7 @@ export default function ItemList() {
 
   return (
     <div>
-        <div className="card">
-            <h2>Skippy's Ship</h2>
-            <p>Fastest monkey hauler in the galaxy.</p>
-        </div>
-
         <SearchBar setSearch={setSearch}/>
-
         <div className="grid">
             {loading ? <p>Nothing</p> : 
                 data.map((val) => (
