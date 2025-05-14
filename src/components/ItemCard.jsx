@@ -25,7 +25,7 @@ import M2 from '../assets/M2.jpg'
 
 export default function ItemCard({search, val}) {
   const navigate = useNavigate()
-
+  console.log(val.name)
   const namesObject = {
     "ExForce_1:_Columbus_Day": EX1,
     "ExForce_2:_Spec_Ops": EX2,
@@ -54,8 +54,10 @@ export default function ItemCard({search, val}) {
 
   return (
     <div className='card' onClick={() => navigate(`/${search}/${val.id}`)}>
-      <h2 className='card-title'>{val.name}</h2>
-      <img src={namesObject[val.name]} alt="Image Unavailable" width='250px'/>
+      <h2 className='card-title'>{val.name.replace(/_/g, " ")}</h2>
+      {namesObject[val.name] ? <img src={namesObject[val.name]} alt="Image Unavailable" width='250px'/> : <div></div>}
+      {/* {val.name ? <div></div> : <img src={namesObject[val.name]} alt="Image Unavailable" width='250px'/>} */}
+      
       <p className='card-description'>{val.author_summary}</p>
   </div>
   )
