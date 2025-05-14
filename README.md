@@ -1,12 +1,50 @@
-# React + Vite
+# EXFOR-CLIENT
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**EXFOR-CLIENT** is the frontend application for a larger fan project inspired by the *Expeditionary Force* book series by Craig Alanson. It connects with a companion backend service found here: [EXFOR-Server](https://github.com/DonovanOLinn/EXFOR-Server).
 
-Currently, two official plugins are available:
+This client is built using React and bootstrapped with Vite for fast development.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 📦 Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (version 14 or higher)
+- npm or Yarn
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/DonovanOLinn/EXFOR-CLIENT.git
+   cd EXFOR-CLIENT
+   ```
+
+2. Install Dependencies:
+
+    ```bash
+    npm install
+    ```
+
+3. Running the Application
+
+    ```bash
+    npm run dev
+    ```
+
+    This generates production-ready files in the dist directory.
+
+## Project Structure: 
+EXFOR-CLIENT/
+├── public/             # Static assets
+├── src/                # Source code
+│   ├── components/     # React components
+│   ├── pages/          # React Pages
+│   ├── App.jsx         # Main app component
+│   └── main.jsx        # Entry point
+├── index.html          # HTML template
+├── package.json        # Project metadata and scripts
+├── vite.config.js      # Vite configuration
+└── .gitignore          # Git ignore rules
