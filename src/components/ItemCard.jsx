@@ -25,7 +25,7 @@ import M2 from '../assets/M2.jpg'
 
 export default function ItemCard({search, val}) {
   const navigate = useNavigate()
-  console.log(val.name)
+  // console.log(val.name)
   const namesObject = {
     "ExForce_1:_Columbus_Day": EX1,
     "ExForce_2:_Spec_Ops": EX2,

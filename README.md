@@ -37,6 +37,7 @@ This client is built using React and bootstrapped with Vite for fast development
     This generates production-ready files in the dist directory.
 
 ## Project Structure: 
+```bash
 EXFOR-CLIENT/
 ├── public/             # Static assets
 ├── src/                # Source code
@@ -48,3 +49,4 @@ EXFOR-CLIENT/
 ├── package.json        # Project metadata and scripts
 ├── vite.config.js      # Vite configuration
 └── .gitignore          # Git ignore rules
+```
